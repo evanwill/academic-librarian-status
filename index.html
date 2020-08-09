@@ -1,0 +1,62 @@
+---
+title: Academic Librarian Status Table
+layout: page
+custom-foot: "js/lib_status.html"
+---
+
+<h1>Academic Librarian Status Table</h1>
+
+<p>The table below provides sorting and basic search of the contents. At the bottom of the page are options to export and download the data.</p>
+
+{% assign items = site.data.librarian_status %}
+<link rel="stylesheet" type="text/css" href="{{ '/assets/lib/datatables/datatables.min.css' | absolute_url }}">
+
+<div class="form-group row justify-content-end">
+	<label for="groupSelect" class="col-sm-4 col-form-label text-right">Filter by Librarian Status:</label>
+	<div class="col-sm-4">
+		<select id="groupSelect" class="form-control custom-select">
+			<option value="all">All Status</option>
+			{%- assign options = items | map: "status" | uniq -%}
+			{% for i in options %}<option value="{{ i }}">{{ i }}</option>
+			{% endfor %}
+		</select>
+	</div>
+</div>
+
+<table id="libstatus" class="table table-striped">
+	<thead>
+		<tr>
+			<th>Status</th>
+			<th>Institution</th>
+			<th>Notes</th>
+			<th>Link</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<th>Status</th>
+			<th>Institution</th>
+			<th>Notes</th>
+			<th>Link</th>
+		</tr>
+	</tfoot>
+	<tbody>
+
+	{% for item in items %}
+	<tr>
+		<td >{{ item.status }}</td>
+		<td >{{ item.institution }}</td>
+		<td >{{ item.notes }}</td>
+		<td >{{ item.link }}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+<hr> 
+
+<p class="mt-4">Clicking the Excel / CSV buttons above will export the current subset of filtered items from the table. For the complete data:</p>
+<p class="text-center">
+<a href="{{ '/data/librarian_status.json' | relative_url }}" class="btn btn-success m-3">Download Full JSON</a>
+<a href="{{ '/data/librarian_status.csv' | relative_url }}" class="btn btn-success m-3">Download Full CSV</a>
+</p>

@@ -1,0 +1,12 @@
+---
+# metadata for json export
+---
+{%- assign items = site.data.librarian_status -%}
+{%- assign fields = 'status,institution,notes,link' | split: ',' -%}
+{ "objects": [
+    {%- for item in items -%}
+    { 
+        {% for f in fields %}{{ f | jsonify }}: {{ item[f] | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+] }

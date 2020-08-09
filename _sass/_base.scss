@@ -1,0 +1,21 @@
+/* base */
+body {
+    @if $base-font-family != "" { font-family: $base-font-family; }
+    font-size: $base-font-size;
+    color: $text-color;
+}
+a {
+    color: $link-color;
+    text-decoration: none;
+    font-weight: normal;
+    &:hover {
+        color: $text-color;
+        text-decoration: underline;
+    }
+}
+/* nav bar */
+
+/* footer */
+#footer-credits {
+    img { height: 40px; }
+}

@@ -1,0 +1,26 @@
+# web table 
+# Jekyll web table Generator
+
+####################
+# Site Settings
+#
+title: Academic Librarian Status
+# header and head metadata
+description: "list of librarian professional status across institutions" 
+# site domain, on GH-pages, following pattern https://yourusername.github.io
+url: https://evanwill.github.io
+# location on the domain
+# on GH-pages the repository name, /yourreponame
+baseurl: /academic-librarian-status
+# location of code (repository link)
+source-code: https://github.com/evanwill/academic-librarian-status
+
+# ID number of your google sheet
+google-sheet-id: 1ikTcXLUiUhbU085Wniyer6C_GqbS2Ey1WS1SfhFaqMc
+
+# Technical stuff
+exclude: [docs/, Rakefile, README.md, LICENSE]
+
+# compress CSS output
+sass:
+  style: compressed

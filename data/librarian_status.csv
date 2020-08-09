@@ -1,0 +1,8 @@
+---
+# create custom metadata csv for download
+---
+{%- assign items = site.data.librarian_status -%}
+{%- assign fields = 'status,institution,notes,link' | split: ',' -%}
+{{ fields | join: "," }}
+{% for item in items %}{% for f in fields %}"{{ item[f] | escape }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+{% endfor %}

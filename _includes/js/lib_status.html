@@ -1,0 +1,36 @@
+<script type="text/javascript" language="javascript" src="{{ '/assets/lib/datatables/datatables.min.js' | absolute_url }}"></script>
+<script>
+/* filter function */
+$.fn.dataTableExt.afnFiltering.push(
+	function( oSettings, aData, iDataIndex ) {
+		var collectionFilter = document.getElementById("groupSelect").value;
+		// show everything
+		if (collectionFilter == "all") { return true; }
+		else { return aData[0] == collectionFilter; }
+	}
+);
+/* use jquery to initialize DataTables  */
+
+var table = $('#libstatus').dataTable({
+    // defer render to speed up large sets
+    "deferRender": true,
+    paging: true,
+    lengthMenu: [[ 25, 50, 100, -1], [ 25, 50, 100, "All"]],
+    // sort based on the status
+    order: [[ 1, "asc" ]],
+    dom: 'i<"row"<"col-md-6"l><"col-md-6"f>>t<"row"<"col-md-6"i><"col-md-6"p>>B', 
+    buttons: [ 'excelHtml5', 'csvHtml5' ],
+    columnDefs: [ 
+        // combine link with first column
+        { "render": function ( data, type, row ) { if(row['3']) { return '<a href="' + row['3'] +'">'+ data +'</a>'; } else { return data }; },"targets": 1 },
+        // hide the link column
+        { "visible": false,  "targets": [ 3 ] }
+    ]
+    
+});
+/* Add event listeners to collectionSelect */
+$('#groupSelect').change( function() {
+    table.fnDraw();
+});
+
+</script>
