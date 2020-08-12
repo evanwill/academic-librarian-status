@@ -26,3 +26,9 @@ Records in this data set:
 | --- | --- |
 {% for i in options %}| {{ i }} | {{ items | where: 'status',i | size }} |
 {% endfor %}
+
+--------
+
+- Source code: [academic-librarian-status]({{ site.source-code }}) *(get in touch with GitHub Issues)*
+- Built with: [Jekyll](https://jekyllrb.com/), [Bootstrap](https://getbootstrap.com/), [DataTables](https://datatables.net/).
+- Last build date: {{ site.time | date: "%Y-%m-%d" }}.
