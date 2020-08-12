@@ -6,7 +6,7 @@ custom-foot: "js/lib_status.html"
 
 <h1>Academic Librarian Status Table</h1>
 
-<p>The table below provides sorting and basic search of the contents. At the bottom of the page are options to export and download the data.</p>
+<p>The table below provides sorting and filtering of the contents. Options to export and download the data are available at the bottom. Please see <a href="about.html">About</a> for info.</p>
 
 {% assign items = site.data.librarian_status %}
 <link rel="stylesheet" type="text/css" href="{{ '/assets/lib/datatables/datatables.min.css' | absolute_url }}">
@@ -17,7 +17,7 @@ custom-foot: "js/lib_status.html"
 		<select id="groupSelect" class="form-control custom-select">
 			<option value="all">All Status</option>
 			{%- assign options = items | map: "status" | uniq -%}
-			{% for i in options %}<option value="{{ i }}">{{ i }}</option>
+			{% for i in options %}<option value="{{ i }}">{{ i }} ({{ items | where: 'status',i | size }})</option>
 			{% endfor %}
 		</select>
 	</div>
@@ -55,7 +55,7 @@ custom-foot: "js/lib_status.html"
 
 <hr> 
 
-<p class="mt-4">Clicking the Excel / CSV buttons above will export the current subset of filtered items from the table. For the complete data:</p>
+<p class="mt-4">Clicking the Excel / CSV buttons above will export the current subset of <em>filtered</em> items from the table. For the complete data:</p>
 <p class="text-center">
 <a href="{{ '/data/librarian_status.json' | relative_url }}" class="btn btn-success m-3">Download Full JSON</a>
 <a href="{{ '/data/librarian_status.csv' | relative_url }}" class="btn btn-success m-3">Download Full CSV</a>
