@@ -15,7 +15,9 @@ Choinski encourages institutions to better represent librarian status in their w
 
 When Wikispaces was shut down in 2018, the content was migrated to the [Academic Librarian Status](https://academiclibrarianstatus.wordpress.com/) WordPress site.
 It does not appear to have been updated since. 
-This website takes that data and presents it as a sortable, searchable table for better ease of use.
+This website harvested that data and presents it as a sortable, searchable table for better ease of use (plus a few minimal updates to the data).
+
+You may also be interested to see ACRL ["Standards for Faculty Status for Academic Librarians"](http://www.ala.org/acrl/standards/standardsfaculty) and ["Standard for the Appointment, Promotion and Tenure of Academic Librarians"](http://www.ala.org/acrl/standards/promotiontenure).
 
 Records in this data set:
 
